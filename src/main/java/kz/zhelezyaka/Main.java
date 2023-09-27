@@ -30,7 +30,13 @@ public class Main {
                 }
             }
             scanner.close();
-//            -----------------------------------------------------------
+//            -----------------------------3 часть-----------------------------
+//            Полученный список объектов City нужно вывести в консоль
+
+//            for (City city : cityList) {
+//                System.out.println(city);
+//            }
+//            -------------------------------5 часть----------------------------
 //            ---Сортировка списка городов по наименованию в алфавитном порядке
 //            по убыванию без учета регистра---
 
@@ -48,7 +54,7 @@ public class Main {
 
 //            cityList.sort(cityComparator);
 
-//            ----------------------------------------------------------------
+//            ---------------------------------7 часть-------------------------------
 //              ---поиск города с наибольшим количеством жителей---
 
 //            City[] cityArray = cityList.toArray(new City[0]);
@@ -66,25 +72,22 @@ public class Main {
 //            if (maxPopulationIndex != -1) {
 //                System.out.println("[" + maxPopulationIndex + "] = " + maxPopulation);
 //            }
-//            -------------------------------------------------------------------
+//            ----------------------------------9 часть---------------------------------
 
 //            ---Определяем количество городов в каждом регионе---
 
-            Map<String, Integer> regionCityCountMap = new HashMap<>();
-
-            for (City city : cityList) {
-                String region = city.getRegion();
-                regionCityCountMap.put(region, regionCityCountMap.getOrDefault(region, 0) + 1);
-            }
-
-            for (Map.Entry<String, Integer> entry : regionCityCountMap.entrySet()) {
-                System.out.println(entry.getKey() + " - " + entry.getValue());
-            }
+//            Map<String, Integer> regionCityCountMap = new HashMap<>();
+//
+//            for (City city : cityList) {
+//                String region = city.getRegion();
+//                regionCityCountMap.put(region, regionCityCountMap.getOrDefault(region, 0) + 1);
+//            }
+//
+//            for (Map.Entry<String, Integer> entry : regionCityCountMap.entrySet()) {
+//                System.out.println(entry.getKey() + " - " + entry.getValue());
+//            }
 
 //            ------------------------------------------------------------
-//            for (City city : cityList) {
-//                System.out.println(city);
-//            }
         } catch (FileNotFoundException e) {
             System.err.println("Такой файл не найден");
         }

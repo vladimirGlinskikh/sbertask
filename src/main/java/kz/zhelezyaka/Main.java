@@ -31,8 +31,17 @@ public class Main {
             }
             scanner.close();
             // Сортировка по наименованию без учета регистра
-            Collections.sort(cityList, (city1, city2) ->
-                    city1.getName().compareToIgnoreCase(city2.getName()));
+//            Collections.sort(cityList, (city1, city2) ->
+//                    city1.getName().compareToIgnoreCase(city2.getName()));
+//            --------------------------------------------------------------
+
+            // Создаем компаратор для сортировки по федеральному округу и наименованию города
+            Comparator<City> cityComparator = Comparator
+                    .comparing(City::getDistrict)
+                    .thenComparing(City::getName);
+
+            // Сортируем список городов
+            cityList.sort(cityComparator);
 
             for (City city : cityList) {
                 System.out.println(city);

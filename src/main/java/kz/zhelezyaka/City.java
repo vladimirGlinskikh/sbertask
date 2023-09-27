@@ -27,6 +27,10 @@ public class City {
         return region;
     }
 
+    public String getDistrict() {
+        return district;
+    }
+
     @Override
     public String toString() {
         return "City{" +

@@ -30,43 +30,58 @@ public class Main {
                 }
             }
             scanner.close();
+//            -----------------------------------------------------------
+//            ---Сортировка списка городов по наименованию в алфавитном порядке
+//            по убыванию без учета регистра---
 
-//            ---первая сортировка---
-
-            // Сортировка по наименованию без учета регистра
 //            Collections.sort(cityList, (city1, city2) ->
 //                    city1.getName().compareToIgnoreCase(city2.getName()));
-//            --------------------------------------------------------------
 
-//              ---вторая сортировка---
-            // Создаем компаратор для сортировки по федеральному округу и наименованию города
+//            --------------------------------------------------------------
+//              ---Сортировка списка городов по федеральному округу и наименованию
+//              города внутри каждого федерального округа в алфавитном порядке по
+//              убыванию с учетом регистра---
+
 //            Comparator<City> cityComparator = Comparator
 //                    .comparing(City::getDistrict)
 //                    .thenComparing(City::getName);
 
-            // Сортируем список городов
 //            cityList.sort(cityComparator);
-//            ----------------------------------------------------------------
 
+//            ----------------------------------------------------------------
 //              ---поиск города с наибольшим количеством жителей---
 
-            // Преобразуем список в массив
-            City[] cityArray = cityList.toArray(new City[0]);
+//            City[] cityArray = cityList.toArray(new City[0]);
+//
+//            int maxPopulation = 0;
+//            int maxPopulationIndex = -1;
+//
+//            for (int i = 0; i < cityArray.length; i++) {
+//                if (cityArray[i].getPopulation() > maxPopulation) {
+//                    maxPopulation = cityArray[i].getPopulation();
+//                    maxPopulationIndex = i;
+//                }
+//            }
+//
+//            if (maxPopulationIndex != -1) {
+//                System.out.println("[" + maxPopulationIndex + "] = " + maxPopulation);
+//            }
+//            -------------------------------------------------------------------
 
-            int maxPopulation = 0;
-            int maxPopulationIndex = -1;
+//            ---Определяем количество городов в каждом регионе---
 
-            for (int i = 0; i < cityArray.length; i++) {
-                if (cityArray[i].getPopulation() > maxPopulation) {
-                    maxPopulation = cityArray[i].getPopulation();
-                    maxPopulationIndex = i;
-                }
+            Map<String, Integer> regionCityCountMap = new HashMap<>();
+
+            for (City city : cityList) {
+                String region = city.getRegion();
+                regionCityCountMap.put(region, regionCityCountMap.getOrDefault(region, 0) + 1);
             }
 
-            if (maxPopulationIndex != -1) {
-                System.out.println("[" + maxPopulationIndex + "] = " + maxPopulation);
+            for (Map.Entry<String, Integer> entry : regionCityCountMap.entrySet()) {
+                System.out.println(entry.getKey() + " - " + entry.getValue());
             }
 
+//            ------------------------------------------------------------
 //            for (City city : cityList) {
 //                System.out.println(city);
 //            }
